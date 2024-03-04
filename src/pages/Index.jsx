@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Box, Button, VStack, HStack, Text, Image, useToast } from "@chakra-ui/react";
 import { FaLocationArrow } from "react-icons/fa";
+import BusMarker from "../components/BusMarker";
 
 const Index = () => {
   const [tracking, setTracking] = useState(false);
@@ -24,6 +25,9 @@ const Index = () => {
       <Box w="100%" h="300px" bg="gray.200" borderRadius="md" overflow="hidden" position="relative">
         {/* Map Placeholder */}
         <Image src="https://images.unsplash.com/photo-1604357209793-fca5dca89f97?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w1MDcxMzJ8MHwxfHNlYXJjaHwxfHxtYXB8ZW58MHx8fHwxNzA5NTQ4MTQwfDA&ixlib=rb-4.0.3&q=80&w=1080" objectFit="cover" w="100%" h="100%" />
+        {Array.from({ length: 10 }).map((_, index) => (
+          <BusMarker key={index} />
+        ))}
         <Box position="absolute" top="0" right="0" m={2} p={2} bg="whiteAlpha.700" borderRadius="md">
           <Text>{tracking ? "Tracking..." : "Not tracking"}</Text>
         </Box>
